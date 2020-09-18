@@ -14,10 +14,17 @@ body {
   width: 70%;
   min-width: 800px;
   margin: 0 auto;
-  background-color: #6091C3;
+  background-color: #233e58;
+}
+
+.header {
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 /* || typography */
+
 
 h1, h2, h3 {
   font-family: 'Cinzel Decorative', cursive;
@@ -27,9 +34,11 @@ h1, h2, h3 {
 p, input, li {
   font-family: 'Roboto Condensed', sans-serif;
   color: #2a2a2a;
+  font-size: 2rem;
 }
 
-h1 {
+h1 {        
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 4rem;
   text-align: center;
   text-shadow: 2px 2px 10px black;
@@ -64,6 +73,11 @@ body > * {
   padding: 1%;
 }
 
+body > * {
+  background-color: red;
+  padding: 1%;
+}
+
 .main, .header, nav, .article, .aside, .footer, section {
   background-color: rgba(0,255,0,0.5);
   padding: 1%;
@@ -78,12 +92,14 @@ h1 {
   display: block;
   height: 60px;
   padding-top: 20.15px;
-}
+  float: right;
+}    
 
 nav {
   height: 50px;
   flex: 100%;
   display: flex;
+  font-weight: bold;
 }
 
 nav ul {
@@ -101,9 +117,9 @@ nav li {
 
 nav a, nav span {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1rem;
   height: 3rem;
-  line-height: 1.7;
+  line-height: 1.7; 
   text-transform: uppercase;
   text-decoration: none;
   color: black;
@@ -113,7 +129,7 @@ nav a, nav span {
 /* || main layout */
 
 .main {
-  display: flex;
+  display: flex-start;
 }
 
 .article, .section {
@@ -134,6 +150,7 @@ nav a, nav span {
 .aside img {
   width: 100%;
   height: auto;
+  float: right;
 }
 
 .footer {
