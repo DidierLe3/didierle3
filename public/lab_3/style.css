@@ -130,6 +130,7 @@ nav a, nav span {
 
 .main {
   display: flex-start;
+  flex-direction: row;
 }
 
 .article, .section {
