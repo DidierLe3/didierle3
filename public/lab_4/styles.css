@@ -14,6 +14,7 @@ h1{
     margin-bottom: 100px;
     margin-right: 0px;
     margin-left: 0px;
+    padding: 0px 16px;
 }
 
 .flex-outer li,.flex-inner {
@@ -25,6 +26,7 @@ h1{
 .flex-outer li p {
     flex: 1 0 125px;
     max-width: 225px;
+    padding: 8px;
 }
 
 .flex-outer > li > label {
@@ -34,12 +36,12 @@ h1{
 }
  
 .flex-outer > li > label + *{
-  flex: 1 0 125px;
+  flex: 1 0 225px;
 }
 
 
 .flex-inner {
-    flex: 1 0 125px;
+    flex: 1 0 225px;
     justify-content: space-between;
 }
 
