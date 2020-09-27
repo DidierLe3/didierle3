@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Jean Didier Ernest lab 4</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 
   <!--The HTML Content Division element (<div>) is the 
@@ -20,61 +20,76 @@
 
     </div><!-- end <div class="wrapper">-->
 
-    <div class="flex-outer">
-        <h1>
-            Jean Didier Ernest lab 4
-        </h1>
-        <form>
-            <ul style="list-style-type:none;">
-                <li>
-                    <label for ="firstName">First Name</label>
-                    <input type="text" id="firstName" name="fName" maxlength="140"/>
-                </li>
-
-                <li>
-                    <label for ="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lName" maxlength="140"/>
-                </li>
-
-                <li>
-                    <label for ="email">Email</label>
-                    <input type="email"/>
-                </li>
-
-                <li>
-                    <label for ="phoneNumber">Phone Number</label>
-                    <input type="tel" id="phone" name="phone"/>
-                </li>
-
-                <textarea rows = "5" cols = "33" name = "Text field">
-                </textarea>                      
-
-                <li>
-                    <label for ="Age">Age</label>
-                    <ul class="flex-inner" style="list-style-type:none;"> <!--checkbox-->
-                        <li>
-                            <input type="checkbox" id="18-35" name="age"/>
-                            <label for ="18-35">18-35</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="35-50" name="age"/>
-                            <label for ="35-50">35-50</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="50-65" name="age"/>
-                            <label for ="50-65">50-65</label>
-                        </li>
-                    </ul><!--end checkbox-->
-
-                    <input type="submit" value="Submit">
-                </li>
-                
-            </ul>
-        </form><!--end form-->
-    </div> <!--end <div class="flex-outer"></div>-->  
+        <!--<div class="flex-outer">-->
+            
+            <form action="api" method="POST">
+                <h1>
+                    Jean Didier Ernest lab 4
+                </h1>
+                <ul class="flex-outer" style="list-style-type:none;">
+                    <li>
+                        <label for ="fname">First Name</label>
+                        <input type="text" id="fname" name="fName" maxlength="140"/>
+                    </li>
     
+                    <li>
+                        <label for ="lastName">Last Name</label>
+                        <input type="text" id="lname" name="lName" maxlength="140"/>
+                    </li>
+    
+                    <li>
+                        <label for ="email">Email</label>
+                        <input type="email"/>
+                    </li>
+    
+                    <li>
+                        <label for ="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"/>
+                    </li>
+
+                    <li>
+                        <label for ="textField">Text Field</label>
+                        <textarea rows = "5" cols = "33" name = "message"></textarea> 
+                    </li>
+    
+                                                                           
+    
+                    <li>
+                        <p>Age</p>
+                        <ul class="flex-inner" style="list-style-type:none;"> <!--checkbox-->
+                            <li>
+                                <input type="checkbox" id="18-35" name="age"/>
+                                <label for ="18-35">18-35</label>
+                            </li>
+    
+                            <li>
+                                <input type="checkbox" id="35-50" name="age"/>
+                                <label for ="35-50">35-50</label>
+                            </li>
+    
+                            <li>
+                                <input type="checkbox" id="50-65" name="age"/>
+                                <label for ="50-65">50-65</label>
+                            </li>
+                        </ul><!--end checkbox-->   
+                        
+                    </li>
+
+                    <li>
+                        <button type="submit">Submit</button>
+                    </li>
+                    
+                </ul>
+            </form><!--end form-->
+        <!--</div> end <div class="flex-outer"></div>-->  
+    </div> <!--end <div class="flex-outer"></div>-->  
+        </div> <!--end <div class="flex-outer"></div>-->  
+        
+    
+
+    <div class="wrapper">
+
+    </div><!-- end <div class="wrapper">--> 
 
   </body>
 
