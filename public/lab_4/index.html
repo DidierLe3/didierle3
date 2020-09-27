@@ -21,38 +21,39 @@
     </div><!-- end <div class="wrapper">-->
 
         <!--<div class="flex-outer">-->
-            
-            <form action="api" method="POST">
+            <!--The HTML form action attribute 
+                defines where to send the form 
+                data when a form is submitted 
+                in an HTML document.-->
+            <form action="/api" method="post">
                 <h1>
                     Jean Didier Ernest lab 4
                 </h1>
                 <ul class="flex-outer" style="list-style-type:none;">
                     <li>
                         <label for ="fname">First Name</label>
-                        <input type="text" id="fname" name="fName" maxlength="140"/>
+                        <input type="text" id="fname" name="fname" maxlength="140"/>
                     </li>
     
                     <li>
-                        <label for ="lastName">Last Name</label>
-                        <input type="text" id="lname" name="lName" maxlength="140"/>
+                        <label for ="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" maxlength="140"/>
                     </li>
     
                     <li>
                         <label for ="email">Email</label>
-                        <input type="email"/>
+                        <input type="email" id="email" name="email"/>
                     </li>
     
                     <li>
-                        <label for ="phoneNumber">Phone Number</label>
+                        <label for ="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone"/>
                     </li>
 
                     <li>
                         <label for ="textField">Text Field</label>
-                        <textarea rows = "5" cols = "33" name = "message"></textarea> 
-                    </li>
-    
-                                                                           
+                        <textarea id="textField" name="message" rows = "5" cols = "33" name = "message"></textarea> 
+                    </li>                                                                        
     
                     <li>
                         <p>Age</p>
@@ -76,7 +77,7 @@
                     </li>
 
                     <li>
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="submit" name="submit">Submit</button>
                     </li>
                     
                 </ul>
