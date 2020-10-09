@@ -1,0 +1,77 @@
+
+body{
+    background-color: green;
+}
+
+h1{
+    text-align: center;
+}
+
+.flex-outer {
+    max-width: 800px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px 16px;
+    margin: 0 auto;
+}
+
+.flex-outer li,.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-outer li p {
+    flex: 1 0 125px;
+    max-width: 225px;
+    padding: 8px;
+}
+
+.flex-outer > li > label {
+  flex: 1 0 125px;
+  max-width: 225px;
+  padding: 8px; /*adds space after line*/
+}
+ 
+.flex-outer > li > label + *{
+  flex: 1 0 225px;
+}
+
+
+.flex-inner {
+    flex: 1 0 225px;
+    justify-content: space-between;
+}
+
+.flex-outer > li > button{
+    margin-left: 0px;
+    padding: 6px 12px;
+}
+
+.flex-outer button{
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 3px;
+}
+
+
+
+/* appropriate for lab 4
+.flex-inner li {
+    width: 80px;
+}*/
+
+/*added for lab 5*/
+
+/*Add a margin of 10px to the right side all buttons*/
+button{
+    margin-right: 10px;
+}
+
+/*Change the width limit on your checkboxes from 80 to 95px*/
+.flex-inner li {
+    width: 95px;
+}
+
