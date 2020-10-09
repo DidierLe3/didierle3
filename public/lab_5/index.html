@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jean Didier Ernest lab 5</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+  <!--The HTML Content Division element (<div>) is the 
+  generic container for flow content. It has no effect 
+  on the content or layout until styled using CSS.-->
+  <body>
+    
+    <div class="wrapper">
+        <div class="container">
+            
+            <div class="header">
+
+            </div><!--end <div class="header">-->
+
+            <!--The HTML form action attribute 
+                defines where to send the form 
+                data when a form is submitted 
+                in an HTML document.-->
+                <form action="/api" method="post">
+                    <h1>
+                        Jean Didier Ernest lab 5
+                    </h1>
+                    <ul class="flex-outer" style="list-style-type:none;">
+                        <li>
+                            <label for ="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" maxlength="140"/>
+                        </li>
+        
+                        <li>
+                            <label for ="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" maxlength="140"/>
+                        </li>
+        
+                        <li>
+                            <label for ="email">Email</label>
+                            <input type="email" id="mail" name="email"/>
+                        </li>
+        
+                        <li>
+                            <label for ="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"/>
+                        </li>
+    
+                        <li>
+                            <label for ="textField">Text Field</label>
+                            <textarea id="textField" name="message" rows = "5" cols = "33"></textarea> 
+                        </li>                                                                        
+        <!--Add a classname selector of .checkbox-list-label to the element containing "Age" from lab 4-->
+                        <li class="checkbox-list-label">
+                            <p class="age">
+                                <label for="age" id="age" name="age">Age</label>
+                            </p>
+                            <ul class="flex-inner" style="list-style-type:none;"> <!--checkbox-->
+                                <li class="checkBox18-35">
+                                    <input type="checkbox" id="18-35" name="age1"/>
+                                    <label for ="18-35">18-35</label>
+                                </li>
+        
+                                <li class="checkBox35-50">
+                                    <input type="checkbox" id="35-50" name="age2"/>
+                                    <label for ="35-50">35-50</label>
+                                </li>
+        
+                                <li class="checkBox50-65">
+                                    <input type="checkbox" id="50-65" name="age3"/>
+                                    <label for ="50-65">50-65</label>
+                                </li>
+                            </ul><!--end checkbox-->   
+                            
+                        </li>
+                        
+                        <div class="button">
+                            <li class="submit">
+                                <button type="submit" id="submit" name="submit">Submit</button>
+                            </li>
+    
+                            <li class="activate">
+                                <button onClick="testFunction()" class="button" id="activateButton" name="activate">Activate</button>
+                            </li>
+                        </div>
+                        
+                        
+                    </ul>
+                </form><!--end form-->
+        </div><!-- end <div class="container">-->
+    </div><!-- end <div class="wrapper">-->
+
+
+        <!--Java Script-->
+        <script>
+            function testFunction() {
+                fetch('/api')
+                .then((response) => response.text())
+                .then((response) => {
+                    /*console.log(response);*/
+                    /*Replace the contents of your header 
+                element and your page title with the 
+                value you got back from your Fetch 
+                request. You will need to use 
+                document.querySelector to do this.*/
+                const header = document.querySelector('header');
+                header.textContent = 'response';
+
+                /*Change your page's background color 
+                by changing the CSS*/
+                document.body.style.backgroundColor = "Indigo";
+
+                /*Change your "age" and age labels 
+                (18-35,etc) to "Fruits" and three 
+                fruit-based labels. 
+                This will need 
+                    - document.querySelectorAll and either  
+                    - a For loop or 
+                    - a .forEach function               
+                the latter is preferred.*/
+                const age = document.querySelectorALl('flex-inner li label');
+                const fruitList = ['orange', 'watermelon', 'strawberry']
+               
+
+                for(let i = 0; i < flex-inner.length; i++){
+                    const text = age[i].innerText;
+                    console.log(text);
+                    age[i].innerText = fruitList[i];
+                }
+
+                /*alternative for loop: For Each Loop*/
+                /*
+                age.forEach(el, i) => {
+                    const text = el.innerText;
+                    console.log(text);
+                    age.innerText = fruitList[i];
+                }
+                */
+                })
+                
+            }/*end testFunction*/
+
+
+        </script>
+  </body>
+
+</html>
+
