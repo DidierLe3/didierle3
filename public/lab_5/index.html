@@ -88,56 +88,52 @@
 
 
         <!--Java Script-->
+
+
         <script>
             function testFunction() {
                 fetch('/api')
                 .then((response) => response.text())
                 .then((response) => {
-                    /*console.log(response);*/
-                    /*Replace the contents of your header 
-                element and your page title with the 
-                value you got back from your Fetch 
-                request. You will need to use 
-                document.querySelector to do this.*/
-                const header = document.querySelector('header');
-                header.textContent = 'response';
 
+                    console.log(response);    
+                    const header = document.querySelector('h1');
+                    const title = document.querySelector('title');
+                    header.innerText = response;
+                    title.innerText = response;
 
-                /*Change your page's background color 
-                by changing the CSS*/
-                document.body.style.backgroundColor = "Indigo";
+                    const body = document.querySelector('body');
+                    body.style.backgroundColor = '#gfhe94';
 
-                /*Change your "age" and age labels 
-                (18-35,etc) to "Fruits" and three 
-                fruit-based labels. 
-                This will need 
-                    - document.querySelectorAll and either  
-                    - a For loop or 
-                    - a .forEach function               
-                the latter is preferred.*/
-                const age = document.querySelectorALl('flex-inner li label');
-                const fruitList = ['orange', 'watermelon', 'strawberry']
-               
+                    const form = document.querySelector('.flex-outer');
+                    form.style.margin = '0 auto';
 
-                for(let i = 0; i < flex-inner.length; i++){
-                    const text = age[i].innerText;
-                    console.log(text);
-                    age[i].innerText = fruitList[i];
-                }
+                    const age = document.querySelector('.flex-outer li p');
+                    age.innerText = "Fruits";
 
-                /*alternative for loop: For Each Loop*/
-                /*
-                age.forEach(el, i) => {
-                    const text = el.innerText;
-                    console.log(text);
-                    age.innerText = fruitList[i];
-                }
-                */
-                return fruitList;
-                })
+                    const fruitList = ['orange', 'watermelon', 'strawberry'];
+                    const cssCheck = document.querySelector('.flex-inner label');
+                    console.log(cssCheck.length, cssCheck[0]);
+
+                    
+
+                    cssCheck.forEach(((check, i) => {
+                        console.log(oLst, i);
+                        oLst.innerText = fruitList[i];
+                    }))
+
+                    /*for(let i = 0; i < oldList.length; i++){
+                        const text = oldList[i].innerText;
+                        console.log(text);
+                        oldList[i].innerText = fruitList[i];
+                    }*/
+
+                }) /*end */
+
+                //return fruitList;
                 
-            }/*end testFunction()*/
 
+            }/*end testFunction()*/
         </script>
   </body>
 
