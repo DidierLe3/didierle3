@@ -1,5 +1,4 @@
 // You may wish to find an effective randomizer function on MDN.
-
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -41,17 +40,16 @@ document.body.addEventListener('submit', async (e) => {
       if(document.querySelector('.flex-inner')){
         document.querySelector('.flex-inner').remove();
       }
-
       const newCountryArray = range(10);
       const newCountryArray2 = newCountryArray.map(() => {
         const randomNumber = getRandomIntInclusive(0, 243);
         return fromServer[randomNumber];
-      })
+      });
 
       const reverseCountryList = newCountryArray2.sort((original, compare) =>
-      sortFunction(compare, original, 'countryName'));
+      sortFunction(compare, original, 'name'));
       const ol = document.createElement('ol');
-      ol.className = 'flex.inner';
+      ol.className = 'flex-inner';
       $('form').prepend(ol);
 
       reverseCountryList.forEach((el, i) => {
@@ -59,7 +57,7 @@ document.body.addEventListener('submit', async (e) => {
         $(li).append(`<input type="checkbox" value=${el.code} id=${el.code} />`);
         $(li).append(`<label for=${el.code}>${el.name}</label>`);
         $(ol).append(li);
-      })
+      });
       console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
