@@ -26,6 +26,7 @@ function convertRestaurantsToCategories(restaurantList) {
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
+<<<<<<< HEAD
   // pass something from convertRestaurant to categories
   return canvasJSConfigObject;
 } 
@@ -57,7 +58,9 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
       axisYType: 'secondary',
       dataPoints: datapointsFromRestaurantsList
     }]
+  };
 }
+>>>>>>> b1e807f7d88e39018b9a015ade74fe89bb0c9f40
 
 function range(int) {
   const arr = [];
