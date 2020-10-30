@@ -1,6 +1,26 @@
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  // reduce function goes here
+  const arrayOfRestaurantCategories = [];
+  const output = {};
+
+  for (let i = 0; i < restaurantList.length; i += 1){
+    arrayOfRestaurantCategories.push(restaurantList[i].category);
+  }/**end for loop */
+
+  for (let i = 0; i < arrayOfRestaurantCategories.length; i += 1){
+    if(!output[arrayOfRestaurantCategories[i]]){
+      output[arrayOfRestaurantCategories[i]] = 0;
+    }
+    output[arrayOfRestaurantCategories[i]] += 1;
+  }/**end for loop */
+
+  const list = Object.keys(output).map((category) => {
+    y: output[category],
+    label: category
+  });
+
+  console.log('list', list)
+  //reduce function goes here
   return list;
 }
 
