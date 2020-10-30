@@ -1,12 +1,22 @@
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
+  // reduce function goes here
   return list;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
+  // pass something from convertRestaurant to categories
   return canvasJSConfigObject;
 } 
+
+function range(int) {
+  const arr = [];
+  for (let i = 0; i < int; i += 1) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 function getRandomIntInclusive(min, max) {
   min1 = Math.ceil(min);
@@ -17,13 +27,12 @@ function getRandomIntInclusive(min, max) {
 async function loadData(){
   const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   const jsonData = await data.json();
-}
-
-const arrayOfTenItems = range(10);
-const randomRestaurants = arrayOfTenItems.map((item) =>{
-  const which = getRandomIntInclusive(0, json.length);
-  const restautant = json[which];
-  return restaurant;
+/*end loadData() */
+  const arrayOfTenItems = range(10);
+  const randomRestaurants = arrayOfTenItems.map((item) =>{
+    const which = getRandomIntInclusive(0, json.length);
+    const restautant = json[which];
+    return restaurant;
 });
 
 console.table(randomRestaurants);
@@ -33,21 +42,39 @@ div.innerHTML = `<h2>What we have</h2> <br />${JSON.stringify(randomRestaurants[
 $('body').append(div);
 
 //the way we want the output
-const newDataShape = randomRestaurants.reduce((collection, itme, i) => {
-//check category in each item
-const findCategory = collection.find((itemFound) => itemFound.label === item.category);
-  if(!findCategory){
-    collection.push({
-      label:item.category,
-      y:1
-    });
-  } else{
-    findCategory.y += 1;
-  }
-  return collection;
+const newDataShape = randomRestaurants.reduce((collection, item, i) => {
+  //check category in each item
+  const findCategory = collection.find((itemFound) => itemFound.label === item.category);
+    if(!findCategory){
+      collection.push({
+        label:item.category,
+        y:1
+      });
+    } else{
+      findCategory.y += 1;
+    }
+    return collection;
 }, []); /* the '[]' means an array will be returned*/
 
+console.table(newDataShape);
+const div2 = document.createElement('div');
+const obj = {
+  label = randomRestaurants[0].category,
+  y: randomRestaurants.length
+};
 
+div2.innerHTML = `<h2>What we want</h2> <br /> 
+                  <h4>A category, how many are in the category?</h4>
+                  <pre><code class="language=javascript">
+                        ${JSON.stringify(obj)}
+                      </code>
+                  </pre>`;
+
+$('body').append(div2);
+
+}
+
+window.onload = loadData;
 
 function runThisWithResultsFromServer(jsonFromServer) {
   console.log('jsonFromServer', jsonFromServer);
@@ -56,8 +83,8 @@ function runThisWithResultsFromServer(jsonFromServer) {
   // Make a configuration object for your chart
   // Instantiate your chart
   const rearrangedData = convertRestaurantsToCategories(jsonFromServer);
-  const choices = makeYourOptionsObject(rearrangeData);
-  var chart = new CanvasGradient.Chart("chartContainer");
+  const choices = makeYourOptionsObject(rearrangedData);
+  var chart = new CanvasGradient.Chart("chartContainer", choices);
   chart.render()
 }
 
@@ -120,7 +147,7 @@ window.onload = function () {
         { y: 29, label: "France" },
         { y: 52, label: "Japan" },
         { y: 103, label: "China" },
-        { y: 134, label: "US" }
+        { y: 134, label: "US" } 
       ]
     }]
   });
