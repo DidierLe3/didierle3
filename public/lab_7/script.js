@@ -1,37 +1,32 @@
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  const arrayOfRestaurantCategories = [];
+  /*const arrayOfRestaurantCategories = [];
   const output = {};
 
   for (let i = 0; i < restaurantList.length; i += 1){
     arrayOfRestaurantCategories.push(restaurantList[i].category);
   }/**end for loop */
 
-  for (let i = 0; i < arrayOfRestaurantCategories.length; i += 1){
+  /*for (let i = 0; i < arrayOfRestaurantCategories.length; i += 1){
     if(!output[arrayOfRestaurantCategories[i]]){
       output[arrayOfRestaurantCategories[i]] = 0;
     }
     output[arrayOfRestaurantCategories[i]] += 1;
   }/**end for loop */
 
-  const list = Object.keys(output).map((category) => {
+  /*const list = Object.keys(output).map((category) => {
     y: output[category],
     label: category
-  });
+  });*/
 
-  console.log('list', list)
+  //console.log('list', list)
   //reduce function goes here
   return list;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
-<<<<<<< HEAD
-  // pass something from convertRestaurant to categories
-  return canvasJSConfigObject;
-} 
-=======
-  CanvasJS.addColorSet('customColorSet1', [
+  /*CanvasJS.addColorSet('customColorSet1', [
     // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
   ]);
 
@@ -39,7 +34,7 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
     animationEnabled: true,
     colorSet: 'customColorSet1',
     title: {
-      text: 'Change This Title'
+      text: 'Places To Eat Out in Future'
     },
     axisX: {
       interval: 1,
@@ -58,9 +53,8 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
       axisYType: 'secondary',
       dataPoints: datapointsFromRestaurantsList
     }]
-  };
+  };*/
 }
->>>>>>> b1e807f7d88e39018b9a015ade74fe89bb0c9f40
 
 function range(int) {
   const arr = [];
@@ -75,26 +69,26 @@ function getRandomIntInclusive(min, max) {
   max1 = Math.floor(max);
   return Math.floor(Math.random() * (max1 - min1 + 1) + min1); //The maximum is inclusive and the minimum is inclusive 
 }
-
+/*
 async function loadData(){
   const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   const jsonData = await data.json();
 /*end loadData() */
-  const arrayOfTenItems = range(10);
+ /* const arrayOfTenItems = range(10);
   const randomRestaurants = arrayOfTenItems.map((item) =>{
     const which = getRandomIntInclusive(0, json.length);
     const restautant = json[which];
     return restaurant;
 });
+*/
+//console.table(randomRestaurants);
 
-console.table(randomRestaurants);
-
-const div = document.createElement('div');
+/*const div = document.createElement('div');
 div.innerHTML = `<h2>What we have</h2> <br />${JSON.stringify(randomRestaurants[0])}<br /><br />`;
-$('body').append(div);
+$('body').append(div);*/
 
 //the way we want the output
-const newDataShape = randomRestaurants.reduce((collection, item, i) => {
+/*const newDataShape = randomRestaurants.reduce((collection, item, i) => {
   //check category in each item
   const findCategory = collection.find((itemFound) => itemFound.label === item.category);
     if(!findCategory){
@@ -108,14 +102,14 @@ const newDataShape = randomRestaurants.reduce((collection, item, i) => {
     return collection;
 }, []); /* the '[]' means an array will be returned*/
 
-console.table(newDataShape);
+/*console.table(newDataShape);
 const div2 = document.createElement('div');
 const obj = {
   label = randomRestaurants[0].category,
   y: randomRestaurants.length
-};
+};*/
 
-div2.innerHTML = `<h2>What we want</h2> <br /> 
+/*div2.innerHTML = `<h2>What we want</h2> <br /> 
                   <h4>A category, how many are in the category?</h4>
                   <pre><code class="language=javascript">
                         ${JSON.stringify(obj)}
@@ -124,9 +118,9 @@ div2.innerHTML = `<h2>What we want</h2> <br />
 
 $('body').append(div2);
 
-}
+}*/
 
-window.onload = loadData;
+//window.onload = loadData;
 
 function runThisWithResultsFromServer(jsonFromServer) {
   console.log('jsonFromServer', jsonFromServer);
@@ -134,17 +128,10 @@ function runThisWithResultsFromServer(jsonFromServer) {
   // Process your restaurants list
   // Make a configuration object for your chart
   // Instantiate your chart
-<<<<<<< HEAD
-  const rearrangedData = convertRestaurantsToCategories(jsonFromServer);
-  const choices = makeYourOptionsObject(rearrangedData);
-  var chart = new CanvasGradient.Chart("chartContainer", choices);
-  chart.render()
-=======
-  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
+  /*const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
   const options = makeYourOptionsObject(reorganizedData);
   const chart = new CanvasJS.Chart('chartContainer', options);
-  chart.render();
->>>>>>> b1e807f7d88e39018b9a015ade74fe89bb0c9f40
+  chart.render();*/
 }
 
 // Leave lines 52-67 alone; do your work in the functions above
