@@ -1,40 +1,35 @@
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  /*const arrayOfRestaurantCategories = [];
-  const output = {};
+  const newDataShape = restaurantList.reduce((collection, item, i) => {
+    const findCat = collection.find((findItem) => findItem.label === item.category);
 
-  for (let i = 0; i < restaurantList.length; i += 1){
-    arrayOfRestaurantCategories.push(restaurantList[i].category);
-  }/**end for loop */
-
-  /*for (let i = 0; i < arrayOfRestaurantCategories.length; i += 1){
-    if(!output[arrayOfRestaurantCategories[i]]){
-      output[arrayOfRestaurantCategories[i]] = 0;
+    if (!findCat) {
+      collection.push({
+        label: item.category,
+        y: 1
+      });
+    } else {
+      findCat.y += 1;
     }
-    output[arrayOfRestaurantCategories[i]] += 1;
-  }/**end for loop */
 
-  /*const list = Object.keys(output).map((category) => {
-    y: output[category],
-    label: category
-  });*/
-
-  //console.log('list', list)
-  //reduce function goes here
-  return list;
+    return collection;
+  }, []); /* the '[]' means an array will be returned*/
+  return newDataShape;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
+  console.log(datapointsFromRestaurantsList);
   // set your chart configuration here!
-  /*CanvasJS.addColorSet('customColorSet1', [
-    // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
-  ]);
+  CanvasJS.addColorSet('customColorSet1', [
 
+    "#B08BEB", "#8FAABB", "#B08BEB", "#F5A52A", "#23BFAA",
+    "#FAA586", "#EB8CC6", "#3EA0DD", "#D95B25", "#AA1DF0"
+  ]);
   return {
     animationEnabled: true,
     colorSet: 'customColorSet1',
     title: {
-      text: 'Places To Eat Out in Future'
+      text: 'Places To Eat Out In Future'
     },
     axisX: {
       interval: 1,
@@ -43,9 +38,27 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
     axisY2: {
       interlacedColor: 'rgba(1,77,101,.2)',
       gridColor: 'rgba(1,77,101,.1)',
-      title: 'Change This Title',
+      title: 'Restaurants By Category',
       labelFontSize: 12,
-      scaleBreaks: {customBreaks: []} // Add your scale breaks here https://canvasjs.com/docs/charts/chart-options/axisy/scale-breaks/custom-breaks/
+      scaleBreaks: {customBreaks: [
+        {
+          startValue: 40,
+          endValue: 50,
+          color: "green",
+          type: "zigzag"
+        },
+
+        {startValue: 85,
+        endValue: 100,
+        color: "black",
+        type: "zigzag"},
+
+        {startValue: 140,
+        endValue: 175,
+        color: "orange",
+        type: "zigzag"},
+      
+      ]}
     },
     data: [{
       type: 'bar',
@@ -53,74 +66,8 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
       axisYType: 'secondary',
       dataPoints: datapointsFromRestaurantsList
     }]
-  };*/
+  };
 }
-
-function range(int) {
-  const arr = [];
-  for (let i = 0; i < int; i += 1) {
-    arr.push(i);
-  }
-  return arr;
-}
-
-function getRandomIntInclusive(min, max) {
-  min1 = Math.ceil(min);
-  max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max1 - min1 + 1) + min1); //The maximum is inclusive and the minimum is inclusive 
-}
-/*
-async function loadData(){
-  const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
-  const jsonData = await data.json();
-/*end loadData() */
- /* const arrayOfTenItems = range(10);
-  const randomRestaurants = arrayOfTenItems.map((item) =>{
-    const which = getRandomIntInclusive(0, json.length);
-    const restautant = json[which];
-    return restaurant;
-});
-*/
-//console.table(randomRestaurants);
-
-/*const div = document.createElement('div');
-div.innerHTML = `<h2>What we have</h2> <br />${JSON.stringify(randomRestaurants[0])}<br /><br />`;
-$('body').append(div);*/
-
-//the way we want the output
-/*const newDataShape = randomRestaurants.reduce((collection, item, i) => {
-  //check category in each item
-  const findCategory = collection.find((itemFound) => itemFound.label === item.category);
-    if(!findCategory){
-      collection.push({
-        label:item.category,
-        y:1
-      });
-    } else{
-      findCategory.y += 1;
-    }
-    return collection;
-}, []); /* the '[]' means an array will be returned*/
-
-/*console.table(newDataShape);
-const div2 = document.createElement('div');
-const obj = {
-  label = randomRestaurants[0].category,
-  y: randomRestaurants.length
-};*/
-
-/*div2.innerHTML = `<h2>What we want</h2> <br /> 
-                  <h4>A category, how many are in the category?</h4>
-                  <pre><code class="language=javascript">
-                        ${JSON.stringify(obj)}
-                      </code>
-                  </pre>`;
-
-$('body').append(div2);
-
-}*/
-
-//window.onload = loadData;
 
 function runThisWithResultsFromServer(jsonFromServer) {
   console.log('jsonFromServer', jsonFromServer);
@@ -128,12 +75,11 @@ function runThisWithResultsFromServer(jsonFromServer) {
   // Process your restaurants list
   // Make a configuration object for your chart
   // Instantiate your chart
-  /*const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
+  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
   const options = makeYourOptionsObject(reorganizedData);
   const chart = new CanvasJS.Chart('chartContainer', options);
-  chart.render();*/
+  chart.render();
 }
-
 // Leave lines 52-67 alone; do your work in the functions above
 document.body.addEventListener('submit', async (e) => {
   e.preventDefault(); // this stops whatever the browser wanted to do itself.
@@ -142,7 +88,7 @@ document.body.addEventListener('submit', async (e) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    }, 
+    },
     body: JSON.stringify(form) /*remember to use this for assignment 2*/
   })
     .then((fromServer) => fromServer.json())
@@ -151,51 +97,3 @@ document.body.addEventListener('submit', async (e) => {
       console.log(err);
     });
 });
-
-
-
-/**************************************************************
-window.onload = function () {
-	
-  const chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    
-    title:{
-      text:"Fortune 500 Companies by Country"
-    },
-    axisX:{
-      interval: 1
-    },
-    axisY2:{
-      interlacedColor: "rgba(1,77,101,.2)",
-      gridColor: "rgba(1,77,101,.1)",
-      title: "Number of Companies"
-    },
-    data: [{
-      type: "bar",
-      name: "companies",
-      axisYType: "secondary",
-      color: "#014D65",
-      dataPoints: [
-        { y: 3, label: "Sweden" },
-        { y: 7, label: "Taiwan" },
-        { y: 5, label: "Russia" },
-        { y: 9, label: "Spain" },
-        { y: 7, label: "Brazil" },
-        { y: 7, label: "India" },
-        { y: 9, label: "Italy" },
-        { y: 8, label: "Australia" },
-        { y: 11, label: "Canada" },
-        { y: 15, label: "South Korea" },
-        { y: 12, label: "Netherlands" },
-        { y: 15, label: "Switzerland" },
-        { y: 25, label: "Britain" },
-        { y: 28, label: "Germany" },
-        { y: 29, label: "France" },
-        { y: 52, label: "Japan" },
-        { y: 103, label: "China" },
-        { y: 134, label: "US" } 
-      ]
-    }]
-  });
-**************************************************************/
